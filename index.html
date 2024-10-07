@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Mania</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="script.js" defer></script>
+</head>
+<body>
+    <div class="flex flex-col">
+        <nav>
+            <h1 class="text-3xl bg-black text-white p-2">Movie Mania</h1>
+        </nav>
+
+        <div class="flex border-2 items-center justify-around mt-10">
+            <div class="bg-gray-500 p-4 rounded-md text-white" id="total-movies-id">
+                <p>Total Movie : </p>
+            </div>
+            <div class="bg-gray-500 p-4 rounded-md text-white" id="total-rating-id">
+                <p>Avg Ratings : </p>
+            </div>
+            <div class="bg-gray-500 p-4 rounded-md text-white" id="total-review-id">
+                <p>Total reviews : </p>
+            </div>
+        </div>
+
+        <div class="border-2 mt-10">
+            <h2 class="text-2xl font-bold">Movie Reviews</h2>
+            <ul class="space-y-4 mt-5">
+                <li class="font-bold bg-gray-500 p-4 rounded-md text-white">
+                    <p class="text-xl">Avatar - 2.7</p>
+                    <p>Test 1</p>
+                    <p>Test 2</p>
+                </li>
+                <!-- <li class="font-bold  bg-gray-500 p-4 rounded-md text-white">
+                 </li> -->
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
