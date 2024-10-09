@@ -26,7 +26,8 @@ const movieReviewData = [
         "rating": 5,
         "by": "Akram K",
         "on": 1718508775000
-      } 
+      }
+
     ]
   ];
 

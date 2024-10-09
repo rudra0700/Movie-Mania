@@ -53,7 +53,10 @@ const sortDataByDate = (moviewReviewdata) =>{
 
 const registerHandler = (moviewReviewdata) =>{
     const sortBtn = document.getElementById("sortBtnId");
+    const groupBtn = document.getElementById("groupBtnId");
+
     sortBtn.addEventListener("click", () => sortByRating(moviewReviewdata))  
+    groupBtn.addEventListener("click", () => groupReviewByTitle(moviewReviewdata))  
 } 
 
 const sortByRating = (moviewReviewdata) =>{
@@ -66,6 +69,49 @@ const sortByRating = (moviewReviewdata) =>{
 
    removeAllChildNodes(movieListElement);
    addMovieReviewData(movieListElement, sortRatingData); 
+}
+
+const groupReviewByTitle = (moviewReviewdata) =>{
+    const movieListElement = document.querySelector("#movieListId ul");
+    removeAllChildNodes(movieListElement);
+
+    const flatReviewData = moviewReviewdata.flat();
+    // console.log(flatReviewData);
+    
+    const groupedReviews = Object.groupBy(flatReviewData, ({title}) => title );
+    console.log(groupedReviews);
+
+    const titleKeys = Reflect.ownKeys(groupedReviews);
+    titleKeys.forEach((title) =>{
+       const  liElem =  document.createElement("li");
+        liElem.classList.add("font-bold", "bg-gray-500", "p-4", "rounded-md", "text-white");
+         
+        const hElem = document.createElement("h1");
+        hElem.innerText = title;
+        liElem.appendChild(hElem);
+        movieListElement.appendChild(liElem);
+
+        const reviews = groupedReviews[title];
+        console.log(title, reviews);
+        
+        reviews.forEach((review) =>{
+            console.log(review);
+            
+            const pEl = document.createElement("p");
+            pEl.classList.add("mx-2", "my-2");
+            
+            const message = `
+               <strong>${review.by}</strong> has given <strong>${review.rating}</strong> rating with a comment , <i>${review.content}</i>
+            `
+
+            pEl.innerHTML = message;
+            liElem.appendChild(pEl)
+        })
+        
+    })
+    
+    
+  
 }
 
 
